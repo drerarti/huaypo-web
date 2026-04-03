@@ -18,7 +18,7 @@ export function WhatsAppButton({
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       className={className}
     >
       {label}

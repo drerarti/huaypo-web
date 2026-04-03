@@ -38,10 +38,12 @@ export function LotDetail({ lot, relatedLots }: LotDetailProps) {
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <p className="text-xs uppercase tracking-[0.35em] text-amber-200">{lot.stage}</p>
-              <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-tight md:text-7xl">
+              <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl md:text-7xl">
                 {lot.name}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-300">{lot.intro}</p>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-stone-300 md:text-lg md:leading-8">
+                {lot.intro}
+              </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-5">
                   <p className="text-xs uppercase tracking-[0.3em] text-stone-400">Codigo</p>
@@ -76,9 +78,9 @@ export function LotDetail({ lot, relatedLots }: LotDetailProps) {
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(12,15,10,0.08),_rgba(12,15,10,0.82))]" />
                 </div>
               ) : null}
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <p className="text-xs uppercase tracking-[0.35em] text-amber-200">{lot.heroLabel}</p>
-                <h2 className="mt-4 font-serif text-4xl leading-tight text-stone-50">
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-stone-50 sm:text-4xl">
                   Un terreno con lectura comercial clara y una experiencia de visita que convence en persona.
                 </h2>
                 <p className="mt-5 leading-8 text-stone-300">{lot.summary}</p>
@@ -102,14 +104,14 @@ export function LotDetail({ lot, relatedLots }: LotDetailProps) {
                   <a
                     href={whatsappHref}
                     target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full bg-amber-300 px-5 py-3 text-center text-sm font-semibold text-stone-900 transition hover:bg-amber-200"
+                    rel="noopener noreferrer"
+                    className="w-full rounded-full bg-amber-300 px-5 py-3 text-center text-sm font-semibold text-stone-900 transition hover:bg-amber-200 sm:w-auto"
                   >
                     Consultar por WhatsApp
                   </a>
                   <Link
                     href="/agenda-tu-visita"
-                    className="rounded-full border border-white/18 px-5 py-3 text-center text-sm font-semibold text-stone-50 transition hover:border-white/35 hover:bg-white/5"
+                    className="w-full rounded-full border border-white/18 px-5 py-3 text-center text-sm font-semibold text-stone-50 transition hover:border-white/35 hover:bg-white/5 sm:w-auto"
                   >
                     Agendar visita
                   </Link>

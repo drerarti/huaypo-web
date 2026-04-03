@@ -39,11 +39,11 @@ function slugify(value: string) {
 function normalizeStatus(value: unknown) {
   const raw = typeof value === "string" ? value.trim().toLowerCase() : "";
 
-  if (raw === "vendido") {
+  if (raw.includes("vend")) {
     return "Vendido";
   }
 
-  if (raw === "reservado") {
+  if (raw.includes("reserv")) {
     return "Reservado";
   }
 
@@ -64,7 +64,7 @@ function toNumber(value: unknown) {
 }
 
 function normalizeCopyArtifacts(value: string) {
-  return value.replace(/ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·|Ãƒâ€šÃ‚Â·|Ã‚Â·|Â·/g, "/");
+  return value.replace(/ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·|ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·|Ãƒâ€šÃ‚Â·|Ã‚Â·/g, "/");
 }
 
 function normalizeLotText(lot: Lot): Lot {
@@ -158,39 +158,37 @@ function transformRecord(record: AirtableRecord): Lot | null {
     namePieces.push(`Lote ${lotNumber}`);
   }
 
-  const name = namePieces.join(" · ");
-
   return {
     id: record.id,
     code,
     slug: slugify(code),
-    name,
+    name: namePieces.join(" / "),
     area: areaValue ? `${areaValue} m2` : "Area por confirmar",
     price: formatCurrency(priceValue),
     stage: phase ? `Fase ${phase}` : "Fase por confirmar",
     status,
-    summary: `${project.summary} ${status === "Disponible" ? "Actualmente disponible para consulta y visita." : `Estado actual: ${status.toLowerCase()}.`}`,
+    summary: `${project.summary} ${status === "Disponible" ? "Disponible para una visita guiada y una lectura serena del lugar." : `Estado actual: ${status.toLowerCase()}.`}`,
     location: project.name,
     view: `Proyecto ${project.name}`,
-    heroLabel: `${project.name} · ${phase ? `Fase ${phase}` : "Proyecto"} · ${status}`,
-    intro: `Este lote pertenece a ${project.name} y se presenta como una opcion clara para clientes que quieren leer bien ubicacion, etapa y potencial dentro del proyecto.`,
-    description: `La ficha toma los datos reales de Airtable para mostrar codigo, metraje, precio y estado de forma comercial y limpia. ${project.summary}`,
+    heroLabel: `${project.name} / ${phase ? `Fase ${phase}` : "Proyecto"} / ${status}`,
+    intro: `Este lote forma parte de ${project.name} y abre una posibilidad concreta de vivir Huaypo con mas calma, horizonte y proyeccion.`,
+    description: `${project.summary} Su ficha concentra lo esencial para imaginar ubicacion, escala y la forma en que este terreno podria convertirse en refugio, patrimonio o segunda vida.`,
     features: [
-      `Codigo real de inventario: ${code}.`,
-      phase ? `Ubicado en ${phase}.` : "Etapa por confirmar.",
+      `Codigo de inventario: ${code}.`,
+      phase ? `Pertenece a la fase ${phase}.` : "Etapa por confirmar.",
       block && lotNumber
         ? `Referencia interna: manzana ${block}, lote ${lotNumber}.`
-        : "Referencia interna disponible en la ficha del lote.",
+        : "Referencia interna disponible para seguimiento comercial.",
     ],
     idealFor: [
-      "Clientes que quieren comparar inventario real y avanzar a una visita.",
-      "Compradores con interes en patrimonio, descanso o segunda vivienda.",
-      "Consultas que requieren una lectura clara de estado y ubicacion.",
+      "Quienes buscan una tierra con paisaje y proyeccion.",
+      "Compradores que desean descanso, patrimonio o una segunda vida cerca de la naturaleza.",
+      "Personas que prefieren decidir despues de recorrer el lugar con contexto claro.",
     ],
     access: [
-      "Coordina una visita guiada desde la web o por WhatsApp.",
-      "Recibe seguimiento comercial con base en el lote consultado.",
-      "Avanza con informacion clara sobre disponibilidad y proyecto.",
+      "Coordina una visita guiada por WhatsApp o dejando tus datos.",
+      "Recibe acompanamiento comercial segun el lote que mas resuene contigo.",
+      "Avanza con claridad sobre disponibilidad, entorno y siguientes pasos.",
     ],
     projectCode,
     projectName: project.name,

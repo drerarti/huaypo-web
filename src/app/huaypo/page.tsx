@@ -1,21 +1,31 @@
+import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { CtaSection } from "@/components/cta-section";
+import { EditorialImageCard } from "@/components/editorial-image-card";
 import { MapSection } from "@/components/map-section";
 import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { SectionTitle } from "@/components/section-title";
+import { editorialMedia } from "@/data/editorial-media";
 import { huaypoStories, siteSettings } from "@/data/site";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
+export const metadata: Metadata = {
+  title: `${siteSettings.brand} | Vivir en Huaypo`,
+  description:
+    "Descubre la experiencia de vivir e invertir en Huaypo con una mirada serena, natural y aspiracional.",
+};
+
 const lifestyleNotes = [
   {
-    title: "Naturaleza que se vuelve parte de la rutina",
+    title: "Luz que cambia la manera de quedarse",
     copy:
-      "Huaypo transmite aire, amplitud y una relacion mas sana con el tiempo. Esa sensacion es una parte importante del atractivo del proyecto.",
+      "La manana abre con horizonte. La tarde cae con una serenidad que vuelve mas profunda la idea de tener un lugar propio aqui.",
   },
   {
-    title: "Tranquilidad con vocacion patrimonial",
+    title: "Valor que madura con el paisaje",
     copy:
-      "La zona invita al descanso, pero tambien sostiene una lectura de valorizacion e interes creciente para compradores que piensan a mediano y largo plazo.",
+      "La tranquilidad seduce hoy. La proyeccion patrimonial aparece despues, como una consecuencia natural de haber elegido bien el territorio.",
   },
 ];
 
@@ -26,13 +36,16 @@ export default function HuaypoPage() {
   );
 
   return (
-    <main className="bg-[#f5f0e8]">
+    <main className="bg-[#F5F1E8]">
       <PageHero
         eyebrow="Vivir en Huaypo"
-        title="Hay lugares que convencen por datos y otros que convencen apenas llegas. Huaypo hace ambas cosas."
-        copy="La propuesta del proyecto se apoya en un entorno que transmite calma, paisaje y proyeccion. Esa mezcla vuelve la compra mas significativa y mucho mas facil de imaginar."
+        title="Entre horizonte, silencio y montana, el futuro toma otra forma."
+        copy="Huaypo tiene algo dificil de fingir: una calma amplia, silenciosa y luminosa que vuelve mas clara la idea de vivir, invertir y volver."
+        imageSrc={editorialMedia.huaypoHero.src}
+        imageAlt="Atmósfera natural de Huaypo"
+        accent="forest"
         actions={[
-          { href: "/lotes", label: "Ver lotes" },
+          { href: "/agenda-tu-visita", label: "Agendar visita" },
           {
             href: whatsappHref,
             label: "Hablar por WhatsApp",
@@ -41,44 +54,77 @@ export default function HuaypoPage() {
           },
         ]}
         highlights={[
-          "Paisaje amplio con lectura emocional inmediata.",
-          "Tranquilidad que no se siente aislada del todo.",
-          "Una zona que combina escapada, descanso e inversion.",
+          "Un paisaje que devuelve aire y perspectiva.",
+          "Silencio, distancia del ruido y cercania a lo esencial.",
+          "Una inversion que tambien se disfruta.",
         ]}
+        aside={
+          <div className="w-full max-w-lg space-y-4">
+            <EditorialImageCard
+              src={editorialMedia.huaypoStory.src}
+              alt={editorialMedia.huaypoStory.alt}
+              eyebrow="Sensacion del lugar"
+              title="El terreno cambia de valor cuando el entorno tambien transforma tu manera de estar."
+              copy="No se trata solo de mirar la laguna o la montana. Se trata de sentir que el paisaje te devuelve una version mas calma de ti mismo."
+              badges={["Laguna", "Altura", "Pausa"]}
+              heightClassName="h-80"
+            />
+          </div>
+        }
       />
 
-      <section className="py-20">
+      <section className="py-24">
         <Container className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <SectionTitle
-            eyebrow="Entorno"
-            title="La narrativa del lugar ayuda a vender el proyecto con mas profundidad y mas verdad."
-            copy="Huaypo no entra en la historia del cliente como un punto en el mapa. Entra como una promesa de aire, tiempo mejor aprovechado y una propiedad con sentido."
-          />
-          <div className="grid gap-5">
-            {huaypoStories.map((story) => (
-              <article
+          <Reveal>
+            <EditorialImageCard
+              src={editorialMedia.homeStory.src}
+              alt={editorialMedia.homeStory.alt}
+              eyebrow="Entorno"
+              title="Un territorio pensado para desconectarte del ruido y acercarte a lo esencial."
+              copy="Entre madera, cielo y relieve, la idea de una casa de descanso deja de ser lejana y empieza a tomar forma."
+              badges={["Refugio", "Horizonte", "Vida pausada"]}
+              heightClassName="min-h-[28rem] h-full"
+            />
+          </Reveal>
+
+          <div className="space-y-5">
+            <SectionTitle
+              eyebrow="Narrativa"
+              title="No es un punto en el mapa. Es una forma distinta de llegar a lo esencial."
+              copy="Huaypo entra en la historia de quien lo conoce como una promesa de aire, tiempo mejor vivido y una propiedad que se siente coherente con lo que anhela."
+            />
+            {huaypoStories.map((story, index) => (
+              <Reveal
                 key={story.title}
-                className="rounded-[2rem] border border-stone-200 bg-white p-7 shadow-[0_18px_50px_rgba(31,24,15,0.08)]"
+                delay={index * 90}
+                className="lux-card rounded-[2rem] p-7"
               >
-                <h3 className="font-serif text-3xl text-stone-900">{story.title}</h3>
-                <p className="mt-4 leading-8 text-stone-700">{story.copy}</p>
-              </article>
+                <h3 className="font-serif text-3xl text-[#0E0E0E]">{story.title}</h3>
+                <p className="mt-4 leading-8 text-[#4D4A43]">{story.copy}</p>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="bg-[#ece4d6] py-20">
+      <section className="lux-noise bg-[#0E0E0E] py-24 text-[#FAF9F6]">
         <Container>
-          <div className="grid gap-6 md:grid-cols-2">
-            {lifestyleNotes.map((note) => (
-              <article
+          <SectionTitle
+            eyebrow="Calidad de vida"
+            title="Entre laguna, montana y silencio, la vida encuentra una escala mas honda."
+            copy="Aqui el descanso no se siente forzado. Surge solo, como surge la certeza de estar frente a un lugar con alma y futuro."
+            tone="light"
+          />
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {lifestyleNotes.map((note, index) => (
+              <Reveal
                 key={note.title}
-                className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-[0_18px_50px_rgba(31,24,15,0.08)]"
+                delay={index * 100}
+                className="lux-card-dark lux-outline rounded-[2rem] p-8"
               >
-                <h3 className="font-serif text-3xl text-stone-900">{note.title}</h3>
-                <p className="mt-4 leading-8 text-stone-700">{note.copy}</p>
-              </article>
+                <h3 className="font-serif text-3xl text-[#FAF9F6]">{note.title}</h3>
+                <p className="mt-4 leading-8 text-[#DDD7C8]">{note.copy}</p>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -86,19 +132,21 @@ export default function HuaypoPage() {
 
       <MapSection
         eyebrow="Accesos"
-        title="Ubicacion, recorrido y una lectura geografica clara para que la visita se sienta sencilla."
-        copy="La idea de esta seccion es acercar el proyecto, bajar fricciones y ayudar a que el cliente pase del interes a la visita."
+        title="El recorrido hacia Huaypo ya empieza a cambiar el ritmo de la mirada."
+        copy="Las referencias del mapa ayudan a acercar el lugar. La visita termina de revelar su verdadera escala, su silencio y su belleza."
       />
 
       <CtaSection
         eyebrow="Descubre la zona"
-        title="Si el estilo de vida en Huaypo resuena contigo, el siguiente paso es visitar los lotes y leer el entorno en persona."
-        copy="Podemos coordinar una visita guiada o ayudarte por WhatsApp a identificar que lotes conectan mejor con tu idea de uso o inversion."
+        title="Si Huaypo ya empezo a resonar contigo, el siguiente paso es recorrerlo con el cuerpo."
+        copy="Coordinemos una visita guiada para que descubras que lote, que vista y que atmosfera dialogan mejor con tu manera de vivir."
         primaryHref="/agenda-tu-visita"
         primaryLabel="Agendar visita"
         secondaryHref={whatsappHref}
         secondaryLabel="Consultar por WhatsApp"
         secondaryExternal
+        backgroundImageSrc={editorialMedia.huaypoHero.src}
+        backgroundImageAlt="Paisaje de Huaypo cubierto por neblina"
       />
     </main>
   );

@@ -1,5 +1,5 @@
 import { type Lot } from "@/data/site";
-import { getAirtableLots } from "@/lib/airtable";
+import { getAirtableLots } from "@/lib/airtable-public";
 
 export async function getAllLots() {
   return getAirtableLots();

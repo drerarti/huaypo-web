@@ -1,3 +1,5 @@
+import { editorialMedia } from "@/data/editorial-media";
+
 export type Lot = {
   id?: string;
   code: string;
@@ -32,9 +34,9 @@ export const siteSettings = {
   brand: "Corporacion Ayllu Laguna Huaypo",
   brandCompact: "Ayllu Laguna Huaypo",
   projectLabel: "Laguna Huaypo",
-  eyebrow: "Lotes, laguna y estilo de vida",
+  eyebrow: "Laguna, montana y una vida mas serena",
   tagline:
-    "Lotes, naturaleza y una presentacion inmobiliaria premium para proyectos con caracter alrededor de Huaypo y su entorno.",
+    "Un territorio pensado para desconectarte del ruido y acercarte a lo esencial, entre laguna, montana y silencio.",
   whatsappNumber: "51910847262",
   whatsappDisplay: "+51 910 847 262",
   phone: "+51 910 847 262",
@@ -50,8 +52,8 @@ export const projectCatalog = {
     code: "ALP",
     name: "Alpinas Etapa 1 y 2",
     summary:
-      "Una lectura de lotes premium-natural con fuerte relacion con el paisaje y el concepto de proyecto.",
-    image: "/media/alp-f2-360.jpg",
+      "Lotes abiertos a una lectura amplia del paisaje, con silencio, horizonte y vocacion de refugio.",
+    image: editorialMedia.projectAlpinas.src,
     locationLabel: "Alpinas etapa 1 y 2",
     mapKey: "alpinas",
   },
@@ -59,8 +61,8 @@ export const projectCatalog = {
     code: "VG",
     name: "Virgilio",
     summary:
-      "Sector con buena presencia de inventario y una narrativa comercial clara para compradores que buscan amplitud y proyeccion.",
-    image: "/media/laguna-atardecer.jpg",
+      "Un tramo donde la laguna y la amplitud del terreno convierten la inversion en una presencia serena y memorable.",
+    image: editorialMedia.projectVirgilio.src,
     locationLabel: "Virgilio",
     mapKey: "virgilio",
   },
@@ -68,8 +70,8 @@ export const projectCatalog = {
     code: "PR",
     name: "Lotizacion Piuray",
     summary:
-      "Una opcion de lotes con lectura patrimonial y un contexto natural muy atractivo para presentacion comercial.",
-    image: "/media/fogata.jpg",
+      "Un paisaje de campo abierto donde la tierra se siente pausa, aire y horizonte patrimonial.",
+    image: editorialMedia.projectPiuray.src,
     locationLabel: "Lotizacion Piuray",
     mapKey: "piuray",
   },
@@ -98,84 +100,84 @@ export const siteLocations = [
     mapEmbedUrl: "https://www.google.com/maps?q=Piuray%20Cusco&z=14&output=embed",
     mapLink: "https://maps.app.goo.gl/kbxdDrY3jid49KeW6",
     copy:
-      "Ubicacion de referencia para ampliar la lectura comercial del portafolio y reforzar presencia territorial.",
+      "Referencia que amplia la lectura del paisaje y refuerza la presencia del proyecto en un entorno de gran calma.",
   },
 ];
 
 export const benefits = [
   {
-    title: "Lotes con una narrativa clara",
+    title: "Naturaleza con profundidad",
     copy:
-      "La propuesta no gira solo alrededor del metraje. Cada lote se presenta como una forma de invertir, descansar y proyectar vida de campo con identidad.",
+      "Huaypo no se mira de pasada. Se siente amplio, silencioso y lleno de aire, como si el paisaje hubiera guardado espacio para una vida mas plena.",
   },
   {
-    title: "Club como valor diferencial",
+    title: "Club que acompana la vida",
     copy:
-      "El club refuerza la experiencia del proyecto con espacios sociales y recreativos que convierten la compra en una decision mas emocional y aspiracional.",
+      "La propuesta suma encuentro, sobremesa, fuego, descanso y comunidad. No es un extra: es parte de la forma de habitar este lugar.",
   },
   {
-    title: "Entorno con potencial de valorizacion",
+    title: "Inversion con paisaje",
     copy:
-      "Huaypo combina paisaje, tranquilidad y crecimiento de interes inmobiliario, algo clave para compradores que miran futuro y calidad de vida al mismo tiempo.",
+      "Invertir aqui no es elegir un lote cualquiera. Es entrar en un paisaje que conserva belleza, horizonte y una promesa de valorizacion sostenida.",
   },
   {
-    title: "Comercializacion cercana y guiada",
+    title: "Visitas que revelan el lugar",
     copy:
-      "La web prioriza agendar visitas, conversar por WhatsApp y orientar la decision con acompanamiento, no solo mostrar fichas.",
+      "Hay decisiones que solo se aclaran caminando la tierra. Por eso la visita es una parte central de la experiencia, no un paso secundario.",
   },
 ];
 
 export const huaypoStories = [
   {
-    title: "Paisaje que baja el ritmo",
+    title: "El paisaje aquieta la mirada",
     copy:
-      "Huaypo invita a desconectarse del apuro y reconectar con aire limpio, amplitud visual y una rutina mas humana.",
+      "Entre laguna, cielo y montana, el ruido pierde fuerza. Queda una sensacion de calma que cambia la forma de imaginar una propiedad.",
   },
   {
-    title: "Inversion con mas significado",
+    title: "La tierra gana sentido",
     copy:
-      "La compra se siente solida cuando une tierra, proyeccion de valorizacion y una experiencia que la familia puede disfrutar desde el primer dia.",
+      "No es solo una inversion. Es una presencia futura, una pausa propia y una forma mas consciente de proyectar patrimonio.",
   },
   {
-    title: "Vida social en un entorno natural",
+    title: "Silencio, comunidad y tiempo",
     copy:
-      "El valor del proyecto crece porque la naturaleza no esta aislada: se complementa con comunidad, club y encuentros reales.",
+      "Huaypo une retiro y pertenencia. La naturaleza no te aisla: te acerca a una comunidad que comparte otra velocidad de vida.",
   },
 ];
 
 export const clubHighlights = [
   {
-    title: "Comunidad con ritmo propio",
+    title: "Encuentros bajo otro cielo",
     copy:
-      "El club crea un punto de encuentro para familias, socios e invitados, con una atmosfera de descanso bien cuidada.",
+      "El club propone un punto de reunion donde la tarde se alarga, el fuego convoca y la vida social se vuelve parte del paisaje.",
   },
   {
-    title: "Amenidades que elevan la propuesta",
+    title: "Bienestar que se vuelve costumbre",
     copy:
-      "Los espacios del club ayudan a que el proyecto se perciba como una experiencia completa, no como una compra aislada.",
+      "Cada espacio acompana la idea de descanso con mas calidez: madera, piedra, aire libre y momentos que se quieren repetir.",
   },
   {
-    title: "Una marca inmobiliaria con vida",
+    title: "Pertenencia con identidad",
     copy:
-      "Mostrar el club en la web aporta credibilidad, deseo y una identidad diferencial frente a ofertas mas planas.",
+      "Cuando un proyecto ofrece comunidad y atmosfera, deja de sentirse como una compra fria y empieza a sentirse como un lugar propio.",
   },
 ];
 
 export const locationHighlights = [
   {
-    title: "Entorno natural de alto valor percibido",
+    title: "Laguna, montana y horizonte",
     copy:
-      "El proyecto se apoya en la amplitud del paisaje, la calma del entorno y una cercania emocional con Cusco que lo vuelve escapada y destino a la vez.",
+      "La fuerza del lugar esta en su amplitud. El paisaje no solo rodea al proyecto: le da identidad y profundidad emocional.",
   },
   {
-    title: "Accesos para visitas y recorridos",
+    title: "Llegar se siente natural",
     copy:
-      "La web deja claro que visitar es facil: se puede coordinar por WhatsApp, recibir una guia y entender rapidamente el recorrido hasta la zona.",
+      "La visita se coordina con facilidad para que el traslado no sea una barrera, sino el comienzo de la experiencia.",
   },
   {
-    title: "Mapa y orientacion claros para la visita",
+    title: "Referencias que acercan",
     copy:
-      "La referencia visual del mapa ayuda a ubicar el proyecto, entender los accesos y bajar fricciones al momento de coordinar el recorrido.",
+      "Ver el mapa, entender los accesos y ubicar los puntos clave ayuda a imaginar la visita con mucha mas certeza.",
   },
 ];
 
@@ -226,7 +228,7 @@ export const lots: Lot[] = [
       "Una alternativa muy equilibrada para quien quiere estar cerca del corazon social del proyecto y construir una rutina mas activa.",
     location: "Franja cercana a servicios y recorrido interno",
     view: "Relacion directa con areas verdes y atmosfera de club",
-    heroLabel: "Cercania, comunidad y un terreno con mucha lectura comercial",
+    heroLabel: "Cercania, comunidad y un terreno con mucha vida alrededor",
     intro:
       "Bosque Alpinas acerca la experiencia del proyecto a quienes buscan una mezcla de naturaleza, movimiento y acceso rapido a las amenidades del club.",
     description:
@@ -353,12 +355,12 @@ export const lots: Lot[] = [
 export const testimonials = [
   {
     quote:
-      "Lo que nos convencio fue que no sentiamos que estabamos comprando un terreno suelto, sino una forma de proyectarnos en Huaypo.",
+      "Sentimos que no estabamos comprando un terreno aislado, sino un lugar donde queriamos volver una y otra vez.",
     author: "Familia Quispe",
   },
   {
     quote:
-      "La propuesta se siente distinta porque combina naturaleza, club y una comunidad que ya tiene identidad propia.",
+      "Lo distinto aqui es la atmosfera: naturaleza, club y una sensacion de pertenencia que aparece desde la primera visita.",
     author: "Socio Alpinas",
   },
 ];

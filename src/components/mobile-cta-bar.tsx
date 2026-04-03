@@ -3,16 +3,16 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 
 export function MobileCtaBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-[rgba(246,241,231,0.96)] px-4 py-3 shadow-[0_-18px_40px_rgba(31,24,15,0.08)] backdrop-blur md:hidden">
-      <div className="mx-auto flex max-w-6xl gap-3">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-[linear-gradient(180deg,_rgba(6,17,14,0.86),_rgba(10,27,21,0.92))] px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 shadow-[0_-26px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl md:hidden">
+      <div className="mx-auto flex max-w-[1180px] gap-3">
         <WhatsAppButton
           label="WhatsApp"
           message="Hola, quiero mas informacion sobre los lotes en Huaypo."
-          className="flex-1 rounded-full bg-stone-900 px-4 py-3 text-center text-sm font-semibold text-stone-50 transition hover:bg-stone-700"
+          className="lux-button-primary flex-1 px-4 py-3.5 text-center text-sm font-semibold"
         />
         <Link
           href="/agenda-tu-visita"
-          className="flex-1 rounded-full border border-stone-300 px-4 py-3 text-center text-sm font-semibold text-stone-900 transition hover:border-stone-500 hover:bg-white"
+          className="lux-button-secondary flex-1 px-4 py-3.5 text-center text-sm font-semibold"
         >
           Agendar visita
         </Link>

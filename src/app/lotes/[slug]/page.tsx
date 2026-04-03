@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LotDetail } from "@/components/lot-detail";
+import { LotDetailPremium } from "@/components/lot-detail-premium";
 import { siteSettings } from "@/data/site";
 import { getLotBySlug, getRelatedLots } from "@/lib/lots";
 
@@ -38,5 +38,5 @@ export default async function LotPage({ params }: LotPageProps) {
     notFound();
   }
 
-  return <LotDetail lot={lot} relatedLots={await getRelatedLots(slug)} />;
+  return <LotDetailPremium lot={lot} relatedLots={await getRelatedLots(slug)} />;
 }

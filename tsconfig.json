@@ -32,15 +32,16 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
     "**/*.mts",
-    "dist-prod/types/**/*.ts",
-    "dist-prod/dev/types/**/*.ts",
-    "build-output/types/**/*.ts",
-    "build-output/dev/types/**/*.ts"
+    ".next-premium/types/**/*.ts",
+    ".next-premium/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "release",
+    ".next",
+    ".next-build",
+    "dist-prod",
+    "build-output"
   ]
 }
